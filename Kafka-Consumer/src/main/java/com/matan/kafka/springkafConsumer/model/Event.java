@@ -20,11 +20,4 @@ public class Event {
 	private int metricValue;
 	private String message;
 
-	public Event(int reporterId, int metricId, int metricValue, String message) {
-		this.reporterId = reporterId;
-		this.metricId = metricId;
-		this.metricValue = metricValue;
-		this.message = message;
-	}
-
 }
