@@ -1,17 +1,18 @@
 package com.matan.kafka.springkafConsumer.listener;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-
 import com.matan.kafka.springkafConsumer.model.Event;
 import com.matan.kafka.springkafConsumer.repo.EventRepository;
 
 @Service
 public class KafkaConsumer {
 
-	@Autowired
 	private EventRepository eventRepository;
+
+	public KafkaConsumer(EventRepository eventRepository) {
+		this.eventRepository = eventRepository;
+	}
 
 	@KafkaListener(topics = "Kafka_Example", groupId = "group_id")
 	public void consume(String message) {
