@@ -18,7 +18,7 @@ import com.matan.kafka.springkafConsumer.model.Event;
 public class KafkaConfiguration {
 
 	@Bean
-	public ConsumerFactory<String, Event> userConsumerFactory() {
+	public ConsumerFactory<String, Event> eventConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
 		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
@@ -29,9 +29,9 @@ public class KafkaConfiguration {
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, Event> userKafkaListenerFactory() {
+	public ConcurrentKafkaListenerContainerFactory<String, Event> eventKafkaListenerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, Event> factory = new ConcurrentKafkaListenerContainerFactory<>();
-		factory.setConsumerFactory(userConsumerFactory());
+		factory.setConsumerFactory(eventConsumerFactory());
 		return factory;
 	}
 }
