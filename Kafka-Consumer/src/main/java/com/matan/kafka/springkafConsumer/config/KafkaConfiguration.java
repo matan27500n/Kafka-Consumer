@@ -17,14 +17,17 @@ import com.matan.kafka.springkafConsumer.model.Event;
 @Configuration
 public class KafkaConfiguration {
 
+	private static final String bootstrapAddress = "localhost:9092";
+	private static final String eventGroupId = "group_id";
+
 	@Bean
 	public ConsumerFactory<String, Event> eventConsumerFactory() {
 		Map<String, Object> config = new HashMap<>();
-
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_json");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, eventGroupId);
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+		config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), new JsonDeserializer<>(Event.class));
 	}
 
@@ -34,4 +37,5 @@ public class KafkaConfiguration {
 		factory.setConsumerFactory(eventConsumerFactory());
 		return factory;
 	}
+
 }

@@ -14,7 +14,7 @@ public class KafkaConsumer {
 		this.eventService = eventService;
 	}
 
-	@KafkaListener(topics = "Kafka_Json", groupId = "group_json", containerFactory = "eventKafkaListenerFactory")
+	@KafkaListener(topics = "eventsConsumer", groupId = "group_id", containerFactory = "eventKafkaListenerFactory")
 	public void consumeJson(Event event) {
 		System.out.println("Consumed JSON Message: " + event);
 		eventService.addEvent(event);
