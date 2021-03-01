@@ -1,6 +1,5 @@
 package com.matan.kafka.springkafConsumer.model;
 
-import java.io.Serializable;
 import java.util.Date;
 import org.springframework.data.annotation.Id;
 import com.fasterxml.jackson.annotation.JsonFormat;
