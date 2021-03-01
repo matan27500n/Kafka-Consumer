@@ -22,6 +22,11 @@ public class EventService {
 		return eventRepository.save(event);
 	}
 
+	public String deleteEvent(int reporterId) {
+		eventRepository.deleteById(reporterId);
+		return "deleted successfully";
+	}
+
 	public Event getOneEvent(int reporterId) {
 		return eventRepository.findById(reporterId).get();
 	}
