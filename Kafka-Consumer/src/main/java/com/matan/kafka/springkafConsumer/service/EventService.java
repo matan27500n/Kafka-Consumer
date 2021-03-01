@@ -2,8 +2,8 @@ package com.matan.kafka.springkafConsumer.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.matan.kafka.springkafConsumer.model.Event;
 import com.matan.kafka.springkafConsumer.repo.EventRepository;
+import com.matan.kafka.springkafkaproducer.model.Event;
 
 @Service
 public class EventService {

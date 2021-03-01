@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.matan.kafka.springkafConsumer.model.Event;
 import com.matan.kafka.springkafConsumer.service.EventService;
+import com.matan.kafka.springkafkaproducer.model.Event;
 
 @RestController
 @RequestMapping("mongo")

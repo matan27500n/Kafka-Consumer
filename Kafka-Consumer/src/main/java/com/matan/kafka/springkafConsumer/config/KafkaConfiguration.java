@@ -11,7 +11,7 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
-import com.matan.kafka.springkafConsumer.model.Event;
+import com.matan.kafka.springkafkaproducer.model.Event;
 
 @EnableKafka
 @Configuration
