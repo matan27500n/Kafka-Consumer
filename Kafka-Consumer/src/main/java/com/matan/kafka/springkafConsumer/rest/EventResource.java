@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.matan.kafka.springkafConsumer.service.EventService;
 import com.matan.kafka.springkafkaproducer.model.Event;
+import com.matan.kafka.springkafkaproducer.service.EventService;
 
 @RestController
 @RequestMapping("mongo")
@@ -36,7 +36,8 @@ public class EventResource {
 
 	@DeleteMapping("deleteEvent/{reporterId}")
 	public ResponseEntity<?> deleteEvent(@PathVariable int reporterId) {
-		return new ResponseEntity<String>(eventService.deleteEvent(reporterId), HttpStatus.NO_CONTENT);
+		eventService.deleteEvent(reporterId);
+		return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
 	}
 
 	@GetMapping("getOneEvent/{reporterId}")
